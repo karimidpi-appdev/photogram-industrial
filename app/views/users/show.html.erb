@@ -13,24 +13,24 @@
         <div class="card-body">
           <h5 class="card-title"><%= photo.owner.username %></h5>
           <p class="card-text"><%= photo.caption %></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <% photo.comments.each do |comment| %>
-            <li class="list-group-item">
+        
+          <ul class="list-group list-group-flush">
+            <% photo.comments.each do |comment| %>
+              <li class="list-group-item">
 
-              <div class="media">
-                <img src="..." class="mr-3" alt="...">
-              </div >
-                <div class="media-body">
-                  <h5 class="mt-0"><%= comment.author.username %></h5>
-                  <p><%= comment.body %></p>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+                <div class="media">
+                  <img src="..." class="mr-3" alt="...">
+                </div >
+                  <div class="media-body">
+                    <h5 class="mt-0"><%= comment.author.username %></h5>
+                    <p><%= comment.body %></p>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+          <div class="card-body">
+            <%= render "comments/form", comment: photo.comments.build %>
+          </div>
         </div>
       </div>
     </div>
